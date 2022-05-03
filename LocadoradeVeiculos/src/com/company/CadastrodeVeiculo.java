@@ -25,7 +25,6 @@ public class CadastrodeVeiculo {
                             .setPrecoCusto(Float.parseFloat(JOptionPane.showInputDialog(null, "Digite o preço custo do seu carro -float-")))
                             .setKm(Integer.parseInt(JOptionPane.showInputDialog(null, "Digite qual a Kilometragem")))
                             .setDtCadastro(JOptionPane.showInputDialog(null, "Digite qual a Data de Cadastro - (DD/MM/AAAA)"))
-                            .setValorVenda(Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor da Venda")))
                             .build();
                     veiculoCarga.tipoDeCarga = JOptionPane.showInputDialog(null, "Digite qual o tipo da carga");
 
@@ -42,7 +41,6 @@ public class CadastrodeVeiculo {
                             .setPrecoCusto(Float.parseFloat(JOptionPane.showInputDialog(null, "Digite o preço custo do seu carro -float-")))
                             .setKm(Integer.parseInt(JOptionPane.showInputDialog(null, "Digite qual a Kilometragem")))
                             .setDtCadastro(JOptionPane.showInputDialog(null, "Digite qual a Data de Cadastro - (DD/MM/AAAA)"))
-                            .setValorVenda(Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor da Venda")))
                             .build();
 
                     JOptionPane.showMessageDialog(null, veiculoPasseio.valorVenda + "\n" + veiculoPasseio.dtCadastro + "\n" + veiculoPasseio.km);

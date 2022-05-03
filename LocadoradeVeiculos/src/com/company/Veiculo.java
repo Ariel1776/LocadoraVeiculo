@@ -19,15 +19,15 @@ public class Veiculo { //SUPER CLASSE
         this.id = count;
     }
 
-    public Veiculo(int ano, String marca, String modelo, String cor, long chassi, float precoCusto, int km, double valorVenda, String dtCadastro) {
+    public Veiculo(int ano, String marca, String modelo, String cor, long chassi, float precoCusto, int km, String dtCadastro) {
         this.ano = ano;
         this.marca = marca;
         this.modelo = modelo;
         this.cor = cor;
         this.chassi = chassi;
         this.precoCusto = precoCusto;
+        this.valorVenda = this.calculaValorVenda();
         this.km = km;
-        this.valorVenda = valorVenda;
         this.dtCadastro = dtCadastro;
     }
 
@@ -36,7 +36,7 @@ public class Veiculo { //SUPER CLASSE
     }
 
     public float calculaValorVenda(){
-        return precoCusto * 1.2f;
+        return precoCusto * 1.20f;
     }
 
     static class Builder {
@@ -47,7 +47,6 @@ public class Veiculo { //SUPER CLASSE
         long chassi;
         float precoCusto;
         int km;
-        double valorVenda;
         String dtCadastro;
 
         public Builder setAno(int ano) {
@@ -85,10 +84,6 @@ public class Veiculo { //SUPER CLASSE
             return this;
         }
 
-        public Builder setValorVenda(double valorVenda) {
-            this.valorVenda = valorVenda;
-            return this;
-        }
 
         public Builder setDtCadastro(String dtCadastro) {
             this.dtCadastro = dtCadastro;
@@ -96,7 +91,7 @@ public class Veiculo { //SUPER CLASSE
         }
 
         public Veiculo build(){
-            return new Veiculo(this.ano, this.marca, this.modelo, this.cor, this.chassi, this.precoCusto, this.km, this.valorVenda, this.dtCadastro);
+            return new Veiculo(this.ano, this.marca, this.modelo, this.cor, this.chassi, this.precoCusto, this.km, this.dtCadastro);
         }
 
     }

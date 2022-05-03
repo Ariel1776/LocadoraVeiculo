@@ -1,9 +1,10 @@
 package com.company;
 
 public class VeiculoPasseio extends Veiculo{ //SUB CLASSE
+    static float taxa = 1.35f;
+
     @Override
     public float calculaValorVenda(){
-        float pcCusto = precoCusto * 1.35f;
-        return pcCusto;
+        return precoCusto * VeiculoPasseio.taxa;
     }
 }
