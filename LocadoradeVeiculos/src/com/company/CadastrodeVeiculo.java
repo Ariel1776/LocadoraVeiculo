@@ -1,45 +1,61 @@
 package com.company;
 
-import jdk.nashorn.internal.scripts.JO;
-
 import javax.swing.*;
-import java.util.jar.JarOutputStream;
 
 public class CadastrodeVeiculo {
 
     public static void main(String[] args) {
-
-        String op = JOptionPane.showInputDialog(null, "Escolha qual veículo irá comprar :\n " +
-                "1.Veículo Carga \n " +
-                "2.Veículo Passeio \n" +
-                "0. Para fechar o programa");
-
-        int opInt = Integer.parseInt(op);
-
+        int opInt;
         do{
+            String op = JOptionPane.showInputDialog(null, "Escolha qual veículo irá comprar :\n " +
+                    "1.Veículo Carga \n " +
+                    "2.Veículo Passeio \n" +
+                    "0. Para fechar o programa");
+
+            opInt = Integer.parseInt(op);
+
             switch (opInt){
                 case 1: //Veículo Carga
-                VeiculoCarga vc = new VeiculoCarga();
-                vc.valorVenda = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor da Venda"));
-                vc.dtCadastro = JOptionPane.showInputDialog(null, "Digite qual a Data de Cadastro");
-                vc.tipodeCarga = JOptionPane.showInputDialog(null, "Digite qual o tipo da carga");
-                vc.km = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite qual a Kilometragem"));
+                    VeiculoCarga veiculoCarga = (VeiculoCarga) new VeiculoCarga.Builder()
+                            .setAno(Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o ano do seu carro")))
+                            .setCor(JOptionPane.showInputDialog(null, "Digite a cor do seu carro"))
+                            .setChassi(Long.parseLong(JOptionPane.showInputDialog(null, "Digite o chassi do seu carro -LONG-")))
+                            .setMarca(JOptionPane.showInputDialog(null, "Digite o marca do seu carro"))
+                            .setModelo(JOptionPane.showInputDialog(null, "Digite o modelo do seu carro"))
+                            .setPrecoCusto(Float.parseFloat(JOptionPane.showInputDialog(null, "Digite o preço custo do seu carro -float-")))
+                            .setKm(Integer.parseInt(JOptionPane.showInputDialog(null, "Digite qual a Kilometragem")))
+                            .setDtCadastro(JOptionPane.showInputDialog(null, "Digite qual a Data de Cadastro - (DD/MM/AAAA)"))
+                            .setValorVenda(Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor da Venda")))
+                            .build();
+                    veiculoCarga.tipoDeCarga = JOptionPane.showInputDialog(null, "Digite qual o tipo da carga");
 
-                JOptionPane.showMessageDialog(null, vc.valorVenda + "\n" + vc.dtCadastro + "\n" + vc.tipodeCarga + "\n" + vc.km);
+                    JOptionPane.showMessageDialog(null, veiculoCarga.valorVenda + "\n" + veiculoCarga.dtCadastro + "\n" + veiculoCarga.tipoDeCarga + "\n" + veiculoCarga.km);
                 break;
 
                 case 2: //Veículo Passeio
-                VeiculoPasseio vp = new VeiculoPasseio();
-                vp.valorVenda = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor da Venda"));
-                vp.dtCadastro = JOptionPane.showInputDialog(null, "Digite qual a Data de Cadastro");
-                vp.km = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite qual a Kilometragem"));
-                JOptionPane.showMessageDialog(null, vp.valorVenda + "\n" + vp.dtCadastro + "\n" + vp.km);
+                    VeiculoPasseio veiculoPasseio = (VeiculoPasseio) new VeiculoPasseio.Builder()
+                            .setAno(Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o ano do seu carro")))
+                            .setCor(JOptionPane.showInputDialog(null, "Digite a cor do seu carro"))
+                            .setChassi(Long.parseLong(JOptionPane.showInputDialog(null, "Digite o chassi do seu carro -LONG-")))
+                            .setMarca(JOptionPane.showInputDialog(null, "Digite o marca do seu carro"))
+                            .setModelo(JOptionPane.showInputDialog(null, "Digite o modelo do seu carro"))
+                            .setPrecoCusto(Float.parseFloat(JOptionPane.showInputDialog(null, "Digite o preço custo do seu carro -float-")))
+                            .setKm(Integer.parseInt(JOptionPane.showInputDialog(null, "Digite qual a Kilometragem")))
+                            .setDtCadastro(JOptionPane.showInputDialog(null, "Digite qual a Data de Cadastro - (DD/MM/AAAA)"))
+                            .setValorVenda(Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor da Venda")))
+                            .build();
+
+                    JOptionPane.showMessageDialog(null, veiculoPasseio.valorVenda + "\n" + veiculoPasseio.dtCadastro + "\n" + veiculoPasseio.km);
                 break;
 
                 case 0:
                     JOptionPane.showMessageDialog(null, "Agradecemos os seus dados");
                 break;
+
+                default:
+                    JOptionPane.showMessageDialog(null, "Opção inválida! Favor escolher uma opção válida");
+                break;
             }
-        }while(opInt != 0);
+        } while(opInt != 0);
     }
 }

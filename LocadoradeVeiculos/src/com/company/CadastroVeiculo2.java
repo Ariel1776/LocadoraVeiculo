@@ -1,9 +1,6 @@
 package com.company;
 
-import jdk.nashorn.internal.scripts.JO;
-
 import javax.swing.*;
-import java.util.jar.JarOutputStream;
 
 public class CadastroVeiculo2 {
 
@@ -31,14 +28,14 @@ public class CadastroVeiculo2 {
                         VeiculoCarga vc = new VeiculoCarga();
                         vc.valorVenda = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor da Venda"));
                         vc.dtCadastro = JOptionPane.showInputDialog(null, "Digite qual a Data de Cadastro");
-                        vc.tipodeCarga = JOptionPane.showInputDialog(null, "Digite qual o tipo da carga");
+                        vc.tipoDeCarga = JOptionPane.showInputDialog(null, "Digite qual o tipo da carga");
                         vc.km = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite qual a Kilometragem"));
 
                         JOptionPane.showMessageDialog(null, v.id + "\n" + v.ano + "\n" + v.marca + "\n" +
                                 v.modelo + "\n" + v.cor + "\n" + v.chassi + "\n" + v.precoCusto); //Veículo == ID
 
                         JOptionPane.showMessageDialog(null, vc.valorVenda + "\n" + vc.dtCadastro + "\n" +
-                                vc.tipodeCarga + "\n" + vc.km); //Dato inputados
+                                vc.tipoDeCarga + "\n" + vc.km); //Dato inputados
                         break;
                         //NÃO VOLTA PARA A RELA INICIAL DEPOIS DISSO :(
                     }else{
